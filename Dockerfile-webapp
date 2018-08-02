@@ -1,4 +1,4 @@
-FROM tiangolo/uwsgi-nginx-flask:python2.7
+FROM tiangolo/uwsgi-nginx-flask:python3.6
 COPY . /app
 COPY uwsgi-docker.ini /app/uwsgi.ini
 

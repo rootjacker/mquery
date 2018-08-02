@@ -1,6 +1,6 @@
 import logging
 
-from itsdangerous import Signer
+from itsdangerous import JSONWebSignatureSerializer
 from redis import StrictRedis
 
 import config
@@ -19,4 +19,12 @@ def make_redis():
 
 
 def make_serializer():
-    return Signer(config.SECRET_KEY)
+    return JSONWebSignatureSerializer(config.SECRET_KEY)
+
+
+def convert_dict(d):
+    return {k.decode('utf-8'): v.decode('utf-8') for k, v in d.items()}
+
+
+def convert_list(lst):
+    return [x.decode('utf-8') for x in lst]
