@@ -1,0 +1,4 @@
+.mquery-yara-input {
+    height: calc(100vh - 150px) !important;
+    font-family: monospace;
+}
